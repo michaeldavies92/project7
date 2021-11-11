@@ -1,0 +1,360 @@
+/* Author: Michael Davies
+Course: CIS233DA
+Section: 27241
+Instructor: Gordon Inman */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Overpass+Mono:wght@300;400;600;700&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --body-background: #221f18; 
+    --section-background: #1d4037;
+    --nav-background: #395252;
+    --text-color-one:  #e9f7ef ;
+    --text-color-two:    #eafaf1;
+    --border-color-one: #599ef8;
+    --border-color-two: #637134;
+    --accent-color-one: #cde2ac;
+    --accent-color-two: #515c04;
+    --font-body: "Rubik", sans-serif; 
+    --font-headings: "Roboto Slab", serif;
+    --font-properties: "Red Hat Mono", monospace;
+    --font-values: "Overpass Mono", monospace;
+}
+@media screen and (prefers-reduced-motion) {
+    .main-link:hover{
+        animation: dissolve;
+    }
+    .main-link:active{
+        animation: dissolve;
+    }
+    .child-links a:hover{
+        animation: dissolve;
+    }
+    .current-link:link, .current-link:visited{
+        animation: dissolve;
+    }
+    .current-link:link + .child-links, .current-link:visited + .child-links {
+        animation: dissolve;
+    }
+}
+@keyframes main-link-animation {
+    from {
+        color: var(--text-color-two);
+    }
+    50% {
+        color: var(--border-color-two);
+    }
+    to {
+        color: var(--border-color-one);
+    }
+}
+@keyframes current-link-animation {
+    from {
+        background-color:var(--body-background) ;
+    }
+    50% {
+        background-color: var(--border-color-two);
+    }
+    to {
+        background-color: var(--border-color-one);
+    }
+}
+
+@keyframes child-link-animation {
+    from {
+        border-color:var(--body-background) ;
+    }
+    50% {
+        border-color: var(--border-color-two);
+    }
+    to {
+        border-color: var(--border-color-one);
+    }
+}
+
+@keyframes child-link-hover {
+    from {
+        text-decoration: none;
+    }
+    to {
+        text-decoration: underline;
+    }
+}
+/* styles affecting flex layout */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: auto;
+    height: 95vh;
+    gap: 1em;
+}
+.wrapper > .column-one{
+    flex-basis: 15vw;
+}
+.wrapper > .column-two{
+    flex-basis: auto;
+    
+}
+main{
+    display: flex;
+    width: auto;
+}
+body{
+    background-color: var(--body-background);
+    color: var(--text-color-one);
+    font-family: var(--font-body);
+}
+body a{
+    color: var(--text-color-two);
+}
+h1, h2, h3{
+    font-family: var(--font-headings);
+}
+h1{
+    text-align: center;
+    color: var(--accent-color-one);
+    position: absolute;
+    bottom: 4em;
+    left: 1em;
+}
+h2{
+    margin: 0;
+    width: 10em;
+    text-align: right;
+    grid-column: 1;
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(-10em, 0);
+    font-size: 28px;
+    text-transform: uppercase;
+    color: var(--accent-color-one);
+}
+
+
+nav{
+    border: 5px solid var(--border-color-one);
+    list-style: none;
+    margin: 1em;
+}
+nav a{
+    text-decoration: none;
+    font-size: 18px;
+}
+.main-link{
+    font-size: 24px;
+    font-weight: bold;
+}
+.main-link:hover{
+    animation-name: main-link-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+.main-link:active{
+    animation-name: main-link-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    text-transform: uppercase;
+}
+.child-links{
+    display: none;
+    margin-top: 0.5em;
+    background-color:var(--section-background);
+    border: 3px solid var(--border-color-one);
+    margin: 1em;
+}
+.child-links li{
+    text-transform: lowercase;
+    margin: 0.5em;
+}
+.child-links a{
+    color: var(--border-color-one);
+    letter-spacing: 0.1em;
+    font-size: 18px;
+    color: var(--accent-color-one);
+}
+.child-links a:hover{
+    animation: child-link-hover 1s infinite;
+    background-color:var(--body-background);
+}
+.current-link:link, .current-link:visited{
+    animation-name: current-link-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+}
+.current-link:link + .child-links, .current-link:visited + .child-links{
+    display: block;
+    animation-name: child-link-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+ul, li{
+    list-style: none;
+}
+.column-one{
+    background-color: var(--nav-background);
+    border: 1px solid var(--border-color-one);
+}
+.column-two{
+    background-color: var(--section-background);
+    border: 1px solid var(--border-color-one);
+}
+footer{
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    bottom: 2em;
+    left: 5em;
+}
+section{
+    display: grid;
+    grid-template-columns: 2em;
+    height: 91vh;
+    margin: 1em auto 1em 1em;
+    border-style: solid;
+    border-color: var(--border-color-one);
+    border-width: 0 0 0 15px;
+    width: auto;
+    
+}
+code{
+    font-family: var(--font-values);
+}
+.code-block{
+    background-color: var(--border-color-one);
+    color: var(--text-color-two);
+    border: 2px dotted var(--border-color-two);
+}
+.term-list{
+    grid-column: 2;
+    border: 3px solid var(--border-color-two);
+    background-color: var(--accent-color-one);
+    color: var(--body-background);
+    padding: 1em;
+    margin: 1em;
+    width: 45em;
+}
+.term-list dt{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: var(--border-color-one);
+    font-weight: bold;
+}
+.term-list dd{
+    padding: 0.5em;
+}
+.example-card{
+    border: 3px solid var(--border-color-two);
+    background-color: var(--accent-color-one);
+    color: var(--body-background);
+    padding: 1em;
+    margin: 2em 1em 1em 1em;
+    box-shadow: 3px 3px 5px var(--body-background);
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 0;
+    width: 30vw;
+}
+.example-card h3{
+    text-transform: lowercase;
+}
+.example-card p{
+    grid-row: 2;
+    align-self: center;
+}
+#animation-preview, #transition-preview, #transformation-preview{
+    grid-row: 4;
+}
+.code-block{
+    grid-row: 3;
+}
+.card-deck{
+    grid-column: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 93vh;
+}
+.property-card{
+    border: 3px solid var(--border-color-two);
+    background-color: var(--accent-color-one);
+    color: var(--body-background);
+    padding: 1em;
+    margin: 2em 1em 1em 1em;
+    box-shadow: 3px 3px 5px var(--body-background);
+    width: max-content;
+    display: grid;
+    grid-template-rows: 0;
+    
+}
+h3{
+    text-align: center;
+    background-color: var(--accent-color-two);
+    color: var(--accent-color-one);
+    border: 3px solid var(--border-color-two);
+    transform: translate(-1.2rem, -4rem);
+    width: max-content;
+    height: min-content;
+    box-shadow: 3px 3px 5px inset var(--body-background);
+    font-family: inherit;
+}
+#transform-preview{
+    border: 3px dotted var(--border-color-one);
+    margin-top: 1em;
+}
+#transform-preview p{
+    transform: 
+    translate(-20em, 3em) 
+    scaleY(10)
+    rotate(180deg)
+    skew(45deg)
+    perspective(100px);
+}
+#transition-preview{
+    border: 3px dotted var(--border-color-one);
+    margin-top: 1em;
+}
+#transition-preview div{
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color-two);
+    transition-property: width, height;
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.5s;
+}
+#transition-preview div:hover{
+    width: 200px;
+    height: 200px;
+}
+#animation-preview{
+    border: 3px dotted var(--border-color-one);
+    margin-top: 1em;
+}
+#animation-preview p{
+    animation-name: main-link-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 3em;
+}
+.index-paragraph{
+    grid-column: 2;
+    
+}
