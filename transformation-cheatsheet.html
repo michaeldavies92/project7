@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7 Cheatsheet</title>
+    <meta name="author" content="Michael Davies">
+    <meta name="description" content="A cheatsheet which will serve as a reference for creating CSS/HTML transformations and animations.">
+    <meta name="keywords" content="HTML, CSS, animations, transformations">
+    <link rel="stylesheet" href="/css/lsn7-styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="column-one">
+            <header>
+                <nav>
+                    <ul>
+                        <li>
+                            <a class="current-link" href="/transformation-cheatsheet.html">Cheatsheet </a>
+                            <ul class="child-links">
+                                <li>
+                                    <a href="#terminology">Terminology</a>
+                                </li>
+                                <li>
+                                    <a href="#transform-properties">Transform</a>
+                                </li>
+                                <li>
+                                    <a href="#transition-properties">Transition</a>
+                                </li>
+                                <li>
+                                    <a href="#animation-properties">Animation</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a class="main-link" href="https://bookish-happiness-12cffe7a.pages.github.io/">Practice</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a class="main-link" href="/index.html">Home</a>
+                            <ul class="child-links">
+                                <li>
+                                    <a href="#my-reflections">Reflections</a>
+                                </li>
+                                <li>
+                                    <a href="#my-next-steps">Next Steps</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <h1>
+                    Lesson 7 Project
+                </h1>
+            </header>
+            <footer>
+                <p>Michael Davies</p>
+                <p>GitHub: michaeldavies92</p>
+                <p>November 8, 2021</p>
+            </footer>
+        </div>
+        <div class="column-two">
+            <main>
+                <section id="term-section">
+                    <h2>
+                        Terminology
+                    </h2>
+                    <div class="term-list">
+                        <dl>
+                            <dt>
+                                Animations
+                            </dt>
+                            <dd>
+                                An animation is a way to make an element change its appearance, either on its own, or when the user interacts with it.
+                            </dd>
+                            <dt>
+                                Keyframes
+                            </dt>
+                            <dd>
+                                The keyframes rule is where you define the different states of your animation. It is best to always include values for "from" and "to", which represent 0 and 100 percent respectively.
+                            </dd>
+                            <dt>
+                                Transforms
+                            </dt>
+                            <dd>
+                                Transforms enable you to change properties of an element in various ways such as rotating it or scaling it in size.
+                            </dd>
+                            <dt>
+                                Transitions
+                            </dt>
+                            <dd>
+                                The transition property allows property values of specific HTML elements to change over time. You are able to specify how smooth an element changes, as well as how long it takes to change.
+                            </dd>
+                            <dt>
+                                Easing
+                            </dt>
+                            <dd>
+                                Easing defines the speed at which an animation starts or ends. You can set it so that it takes longer at start up, or longer near the end of its animation.
+                            </dd>
+                            <dt>
+                                Rotation
+                            </dt>
+                            <dd>
+                                This will take an element and turn it in a specified amount of degrees.
+                            </dd>
+                            <dt>
+                                Scale
+                            </dt>
+                            <dd>
+                                This will allow an element to be sized up or down.
+                            </dd>
+                            <dt>
+                                Skew
+                            </dt>
+                            <dd>
+                                The essentially will slant the element at the specified angle.
+                            </dd>
+                            <dt>
+                                Delay
+                            </dt>
+                            <dd>
+                                This determines how long it will take before an animation begins.
+                            </dd>
+                            <dt>
+                                Timing
+                            </dt>
+                            <dd>
+                                The timing of animation determines how slowly or quickly certain parts of the animation will take. "ease" properties are included here.
+                            </dd>
+                        </dl>
+                    </div>
+                </section>
+                <section id="transform-section">
+                    <h2 id="transform-properties">
+                        Transform
+                    </h2>
+                    <div class="example-card">
+                        <h3>
+                            Example Code
+                        </h3>
+                        <p>
+                            The transform property allows the element to be altered in various ways as can be seen below. You can move it from its original position, stretch it larger or smaller, rotate it, and angle it toward a direction.
+                        </p>
+                        <div class="code-block">
+                            <code>
+                                #transform-preview p{<br>
+                                    transform: <br>
+                                    translate(-20em, 3em) <br> 
+                                    scaleY(10) <br>
+                                    rotate(180deg) <br>
+                                    skew(45deg) <br>
+                                    perspective(100px); <br>
+                                }
+                            </code>
+                        </div>
+                        <div id="transform-preview">
+                            <p>
+                                Code Preview
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        
+                        <div class="property-card">
+                            <h3>
+                                matrix
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: matrix(n,n,n,n);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                translate
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: translate (x,y);
+                                    <br>
+                                    transform: translateX(n);
+                                    <br>
+                                    transform: translateY(n);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                scale
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: scale (x,y);
+                                    <br>
+                                    transform: scaleX(n);
+                                    <br>
+                                    transform: scaleY(n);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                rotate
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: rotate (angle);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                skew
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: skew(x-angle, y-angle);
+                                    <br>
+                                    transform: skewX(angle);
+                                    <br>
+                                    transform: skewY(angle);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                perspective
+                            </h3>
+                            <p>
+                                <code>
+                                    transform: perspective (length);
+                                </code>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section id="transition-section">
+
+                    <h2 id="transition-properties">
+                        Transition
+                    </h2>
+                    <div class="example-card">
+                        <h3>
+                            Example Code
+                        </h3>
+                        <p>
+                            The transition property allows you to assign the exact way in which an element will change. You are able to assign the properties that will change, as well as the duration of the change, and how fast or slow the change occurs. An example of this can be seen by hovering over the green square in the preview area.
+                        </p>
+                        <div class="code-block">
+                            
+                               
+                            <code>
+                            #transition-preview div{ <br>
+                            width: 50px; <br>
+                            height: 50px; <br>
+                            background-color: var(--accent-color-two); <br>
+                            transition-property: width, height; <br>
+                            transition-duration: 3s; <br>
+                            transition-timing-function: ease-in-out; <br>
+                            transition-delay: 0.5s; <br>
+                            } <br>
+                            #transition-preview div:hover{ <br>
+                            width: 200px; <br>
+                            height: 200px; <br>
+                            }
+                            </code>
+                                
+                            
+                        </div>
+                        <div id="transition-preview">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        
+                        <div class="property-card">
+                            <h3>
+                                transition-property
+                            </h3>
+                            <p>
+                                <code>
+                                    transition-property: (property);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                transition-duration
+                            </h3>
+                            <p>
+                                <code>
+                                   transition-duration: (time);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                transition-timing-function
+                            </h3>
+                            <p>
+                                <code>
+                                    transition-timing-function: ease;
+                                    <br>
+                                    transition-timing-function: linear;
+                                    <br>
+                                    transition-timing-function: ease-in;
+                                    <br>
+                                    transition-timing-function: ease-out;
+                                    <br>
+                                    transition-timing-function: ease-in-out;
+                                    <br>
+                                    transition-timing-function: step-start;
+                                    <br>
+                                    transition-timing-function: step-end;
+                                    <br>
+                                    transition-timing-function: steps(int,start|end);
+                                    <br>
+                                    transition-timing-function: cubic-bezier(n,n,n,n);
+                                    
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                transition-delay
+                            </h3>
+                            <p>
+                                <code>
+                                    transition-delay: (time);
+                                </code>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section id="animation-section">
+                    <h2 id="animation-properties">
+                        Animation
+                    </h2>
+                    <div class="example-card">
+                        <h3>
+                            Example Code
+                        </h3>
+                        <p>
+                            The animation property allows for an element to have a specified animation set to it which is created which the @keyframes rule. Once the rule is decided, the way that it will display to the user is decided with the animation property. You can control how long the animation takes, whether or not it repeats, as well as its timing and direction.
+                        </p>
+                        <div class="code-block">
+                            <code>
+                            #animation-preview p{ <br>
+                                animation-name: main-link-animation; <br>
+                                animation-duration: 2s; <br>
+                                animation-iteration-count: infinite; <br>
+                                animation-timing-function: linear; <br>
+                                animation-direction: alternate; <br>
+                            }
+                            </code>
+                        </div>
+                        <div id="animation-preview">
+                            <p>
+                                Code Preview
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        
+                        <div class="property-card">
+                            <h3>
+                                animation-name
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-name: (keyframe);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-timing-function
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-timing-function: ease;
+                                    <br>
+                                    animation-timing-function: linear;
+                                    <br>
+                                    animation-timing-function: ease-in;
+                                    <br>
+                                    animation-timing-function: ease-out;
+                                    <br>
+                                    animation-timing-function: ease-in-out;
+                                    <br>
+                                    animation-timing-function: step-start;
+                                    <br>
+                                    animation-timing-function: step-end;
+                                    <br>
+                                    animation-timing-function: steps(int,start|end);
+                                    <br>
+                                    animation-timing-function: cubic-bezier(n,n,n,n);
+                                    
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-duration
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-duration: (time);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-delay
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-delay: (time);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-iteration-count
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-iteration-count: (number);
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-fill-mode
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-fill-mode: forwards;
+                                    <br>
+                                    animation-fill-mode: backwards;
+                                    <br>
+                                    animation-fill-mode: both;
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-direction
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-direction: normal;
+                                    <br>
+                                    animation-direction: reverse;
+                                    <br>
+                                    animation-direction: alternate;
+                                    <br>
+                                    animation-direction: alternate-reverse;
+                                
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-play-state
+                            </h3>
+                            <p>
+                                <code>
+                                    animation-play-state: paused;
+                                    <br>
+                                    animation-play-state: running;
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                animation-name
+                            </h3>
+                            <p>
+                                <code>
+                                    @keyframes (animationname) { <br>
+                                        (keyframes-selector) { <br>
+                                            (css-styles) <br>
+                                        } <br>
+                                    }
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                keyframes-selector
+                            </h3>
+                            <p>
+                                <code>
+                                    @keyframes (animationname) { <br>
+                                        (keyframes-selector) { <br>
+                                            (css-styles) <br>
+                                        } <br>
+                                    }
+                                </code>
+                            </p>
+                        </div>
+                        <div class="property-card">
+                            <h3>
+                                css-styles
+                            </h3>
+                            <p>
+                                <code>
+                                    @keyframes (animationname) { <br>
+                                        (keyframes-selector) { <br>
+                                            (css-styles) <br>
+                                        } <br>
+                                    }
+                                </code>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
